@@ -34680,7 +34680,7 @@
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 326);
+	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 325);
 	
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 	
@@ -34690,7 +34690,7 @@
 	
 	var _colors = __webpack_require__(/*! material-ui/styles/colors */ 184);
 	
-	var _GameLogic = __webpack_require__(/*! ./GameLogic.js */ 325);
+	var _GameLogic = __webpack_require__(/*! ./GameLogic.js */ 328);
 	
 	var _GameLogic2 = _interopRequireDefault(_GameLogic);
 	
@@ -34928,8 +34928,8 @@
 	    min: 3,
 	    max: 12,
 	    step: 1,
-	    defaultValue: 3,
-	    value: props.slider,
+	    defaultValue: props.size,
+	    value: props.size,
 	    onChange: props.handler,
 	    style: { width: '450px', margin: 'auto', marginTop: '40px' }
 	  });
@@ -36859,61 +36859,6 @@
 
 /***/ },
 /* 325 */
-/*!*********************************!*\
-  !*** ./client/app/GameLogic.js ***!
-  \*********************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	function checkVertical(index, state, size, turn) {
-	  var col = index % size;
-	  var player = turn % 2 + 1;
-	  for (var i = 0; i < size; i++) {
-	    if (state[col + i * size] !== player) return false;
-	  }
-	  return true;
-	}
-	
-	function checkHorizontal(index, state, size, turn) {
-	  var row = Math.floor(index / size);
-	  var player = turn % 2 + 1;
-	  for (var i = 0; i < size; i++) {
-	    if (state[row * size + i] !== player) return false;
-	  }
-	  return true;
-	}
-	
-	function checkMajorDiag(index, state, size, turn) {
-	  var player = turn % 2 + 1;
-	  for (var i = 0; i < size; i++) {
-	    if (state[i * size + i] !== player) return false;
-	  }
-	  return true;
-	}
-	
-	function checkMinorDiag(index, state, size, turn) {
-	  var player = turn % 2 + 1;
-	  for (var i = 1; i <= size; i++) {
-	    if (state[i * size - i] !== player) return false;
-	  }
-	  return true;
-	}
-	
-	var isGameOver = function isGameOver(cellIdx, boardState, size, turn) {
-	  if (checkVertical(cellIdx, boardState, size, turn)) return true;
-	  if (checkHorizontal(cellIdx, boardState, size, turn)) return true;
-	  if (checkMajorDiag(cellIdx, boardState, size, turn)) return true;
-	  return checkMinorDiag(cellIdx, boardState, size, turn);
-	};
-	
-	exports.default = isGameOver;
-
-/***/ },
-/* 326 */
 /*!*******************************************!*\
   !*** ./~/material-ui/FlatButton/index.js ***!
   \*******************************************/
@@ -36926,7 +36871,7 @@
 	});
 	exports.default = undefined;
 	
-	var _FlatButton = __webpack_require__(/*! ./FlatButton */ 327);
+	var _FlatButton = __webpack_require__(/*! ./FlatButton */ 326);
 	
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 	
@@ -36935,7 +36880,7 @@
 	exports.default = _FlatButton2.default;
 
 /***/ },
-/* 327 */
+/* 326 */
 /*!************************************************!*\
   !*** ./~/material-ui/FlatButton/FlatButton.js ***!
   \************************************************/
@@ -36971,7 +36916,7 @@
 	
 	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
 	
-	var _FlatButtonLabel = __webpack_require__(/*! ./FlatButtonLabel */ 328);
+	var _FlatButtonLabel = __webpack_require__(/*! ./FlatButtonLabel */ 327);
 	
 	var _FlatButtonLabel2 = _interopRequireDefault(_FlatButtonLabel);
 	
@@ -37261,7 +37206,7 @@
 	exports.default = FlatButton;
 
 /***/ },
-/* 328 */
+/* 327 */
 /*!*****************************************************!*\
   !*** ./~/material-ui/FlatButton/FlatButtonLabel.js ***!
   \*****************************************************/
@@ -37343,6 +37288,61 @@
 	  muiTheme: _react.PropTypes.object.isRequired
 	};
 	exports.default = FlatButtonLabel;
+
+/***/ },
+/* 328 */
+/*!*********************************!*\
+  !*** ./client/app/GameLogic.js ***!
+  \*********************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	function checkVertical(index, state, size, turn) {
+	  var col = index % size;
+	  var player = turn % 2 + 1;
+	  for (var i = 0; i < size; i++) {
+	    if (state[col + i * size] !== player) return false;
+	  }
+	  return true;
+	}
+	
+	function checkHorizontal(index, state, size, turn) {
+	  var row = Math.floor(index / size);
+	  var player = turn % 2 + 1;
+	  for (var i = 0; i < size; i++) {
+	    if (state[row * size + i] !== player) return false;
+	  }
+	  return true;
+	}
+	
+	function checkMajorDiag(index, state, size, turn) {
+	  var player = turn % 2 + 1;
+	  for (var i = 0; i < size; i++) {
+	    if (state[i * size + i] !== player) return false;
+	  }
+	  return true;
+	}
+	
+	function checkMinorDiag(index, state, size, turn) {
+	  var player = turn % 2 + 1;
+	  for (var i = 1; i <= size; i++) {
+	    if (state[i * size - i] !== player) return false;
+	  }
+	  return true;
+	}
+	
+	var isGameOver = function isGameOver(cellIdx, boardState, size, turn) {
+	  if (checkVertical(cellIdx, boardState, size, turn)) return true;
+	  if (checkHorizontal(cellIdx, boardState, size, turn)) return true;
+	  if (checkMajorDiag(cellIdx, boardState, size, turn)) return true;
+	  return checkMinorDiag(cellIdx, boardState, size, turn);
+	};
+	
+	exports.default = isGameOver;
 
 /***/ }
 /******/ ]);
