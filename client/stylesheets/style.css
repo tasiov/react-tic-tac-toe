@@ -1,0 +1,25 @@
+.board {
+  border-color: black;
+  border-width: thin;
+  border-style: solid;
+  height: 452px;
+  width: 452px;
+  margin: auto;
+}
+
+.cell {
+  float: left;
+  border-color: black;
+  border-width: thin;
+  border-style: solid;
+}
+
+.player {
+  text-align: center;
+  font-size: 40px;
+  margin: 5px;
+}
+
+.winTag {
+  font-size: 40px;  
+}

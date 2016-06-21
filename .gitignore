@@ -1,1 +1,13 @@
-npm-debug.log
+# OSX
+**/.DS_Store
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Compiled Directories
+client/public/
+
+# Dependency directories
+node_modules/

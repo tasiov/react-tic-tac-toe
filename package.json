@@ -1,11 +1,11 @@
 {
-  "name": "messenger",
+  "name": "react-tic-tac-toe",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "./node_modules/.bin/webpack -p",
+    "build": "./node_modules/.bin/webpack -d",
     "watch": "./node_modules/.bin/webpack -d --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,10 +25,12 @@
     "babel-preset-react": "^6.5.0",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
+    "material-ui": "^0.15.0",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
+    "react-tap-event-plugin": "^1.0.0",
     "webpack": "^1.13.0"
   }
 }
